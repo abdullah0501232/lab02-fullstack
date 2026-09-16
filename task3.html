@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3 — Profile Badge Using CSS Positioning and Pseudo-elements</title>
+  <link rel="stylesheet" href="task3.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand">Lab 2 Tasks</div>
+      <nav class="nav-links">
+        <a href="task1.html">Task 1</a>
+        <a href="task2.html">Task 2</a>
+        <a href="task3.html" class="active">Task 3</a>
+        <a href="task4.html">Task 4</a>
+        <a href="index.html">Task 5 (Portfolio)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="task-banner">
+      <h1>Task 3 — Profile Badge Using CSS Positioning &amp; Pseudo-elements</h1>
+      <p>Demonstrates position: relative, position: absolute for badge placement, and ::before/::after decorative elements.</p>
+    </div>
+
+    <section class="achievement-section">
+      <!-- Requirement 1: Main card uses position: relative -->
+      <!-- Requirement 3: Uses ::before or ::after to create decorative label or line -->
+      <div class="achievement-card">
+        
+        <!-- Requirement 2 & 4: Featured badge uses position: absolute at top-right corner -->
+        <span class="featured-badge">★ Featured Award</span>
+
+        <div class="card-inner">
+          <div class="student-meta">
+            <span class="meta-label">Recipient</span>
+            <h3 class="student-name">Abdullah Khan</h3>
+          </div>
+
+          <!-- Title with ::after decorative line -->
+          <h2 class="achievement-title">Dean's Honor List &amp; First Place Capstone</h2>
+
+          <div class="date-badge-wrapper">
+            <span class="achievement-date">📅 Awarded: September 15, 2026</span>
+            <span class="academic-year">Academic Year 2025–2026</span>
+          </div>
+
+          <p class="achievement-description">
+            Recognized for outstanding academic achievement, research excellence, and leadership in developing responsive full-stack web applications. Ranked in the top 2% of the Computer Science and Software Engineering cohort.
+          </p>
+
+          <div class="achievement-footer">
+            <div class="issuer-info">
+              <strong>Department of Computer Science</strong>
+              <span>Faculty of Information Technology</span>
+            </div>
+            <button class="verify-btn" type="button">Verify Credential</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Full Stack Web Development — Lab 2 | Task 3</p>
+  </footer>
+
+</body>
+</html>

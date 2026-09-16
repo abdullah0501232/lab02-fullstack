@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 — Interactive Project Cards</title>
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand">Lab 2 Tasks</div>
+      <nav class="nav-links">
+        <a href="task1.html">Task 1</a>
+        <a href="task2.html" class="active">Task 2</a>
+        <a href="task3.html">Task 3</a>
+        <a href="task4.html">Task 4</a>
+        <a href="index.html">Task 5 (Portfolio)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="task-banner">
+      <h1>Task 2 — Interactive Project Cards</h1>
+      <p>Demonstrating Flexbox card layouts, CSS transitions, transform effects, and interactive hover CSS filters.</p>
+    </div>
+
+    <!-- Requirement 1: Flexbox to arrange the three cards -->
+    <section class="projects-container">
+      
+      <!-- Card 1: Web Development Project (with CSS Grayscale Filter) -->
+      <article class="project-card">
+        <div class="image-wrapper filter-grayscale">
+          <img 
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" 
+            alt="Web Development Project"
+            class="project-img"
+          >
+          <span class="filter-indicator">Hover image to remove filter</span>
+        </div>
+        <div class="card-content">
+          <span class="project-tag">Frontend &amp; Responsive UI</span>
+          <h2 class="project-title">Web Development Project</h2>
+          <p class="project-desc">
+            A responsive, accessibility-focused web application built with modern HTML5, CSS3 Flexbox/Grid, and modular JavaScript with fluid screen adaptations.
+          </p>
+          <button class="btn btn-primary" type="button">View Project &rarr;</button>
+        </div>
+      </article>
+
+      <!-- Card 2: Database Project (with CSS Sepia Filter) -->
+      <article class="project-card">
+        <div class="image-wrapper filter-sepia">
+          <img 
+            src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=700&q=80" 
+            alt="Database Project"
+            class="project-img"
+          >
+          <span class="filter-indicator">Hover image to remove filter</span>
+        </div>
+        <div class="card-content">
+          <span class="project-tag">Backend &amp; SQL</span>
+          <h2 class="project-title">Database Project</h2>
+          <p class="project-desc">
+            Relational database management system featuring optimized SQL queries, normalized schema modeling, stored procedures, and ACID compliance transactions.
+          </p>
+          <button class="btn btn-success" type="button">View Project &rarr;</button>
+        </div>
+      </article>
+
+      <!-- Card 3: AI/ML Project (with CSS Grayscale/Contrast Filter) -->
+      <article class="project-card">
+        <div class="image-wrapper filter-contrast">
+          <img 
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=80" 
+            alt="AI/ML Project"
+            class="project-img"
+          >
+          <span class="filter-indicator">Hover image to remove filter</span>
+        </div>
+        <div class="card-content">
+          <span class="project-tag">Machine Learning</span>
+          <h2 class="project-title">AI/ML Project</h2>
+          <p class="project-desc">
+            Supervised machine learning pipeline and predictive classifier utilizing neural networks, natural language processing, and interactive data visualization.
+          </p>
+          <button class="btn btn-purple" type="button">View Project &rarr;</button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Full Stack Web Development — Lab 2 | Task 2</p>
+  </footer>
+
+</body>
+</html>

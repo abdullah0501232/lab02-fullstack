@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1 — Responsive Student Profile Layout</title>
+  <link rel="stylesheet" href="task1.css">
+</head>
+<body>
+
+  <!-- Top Lab Task Navigation -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand">Lab 2 Tasks</div>
+      <nav class="nav-links">
+        <a href="task1.html" class="active">Task 1</a>
+        <a href="task2.html">Task 2</a>
+        <a href="task3.html">Task 3</a>
+        <a href="task4.html">Task 4</a>
+        <a href="index.html">Task 5 (Portfolio)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="task-banner">
+      <h1>Task 1 — Responsive Student Profile Layout</h1>
+      <p>Demonstrates CSS Flexbox, justify-content, align-items, and responsive vertical stacking on mobile.</p>
+    </div>
+
+    <!-- Student Profile Section -->
+    <section class="profile-section">
+      <div class="profile-card">
+        <!-- Student Image -->
+        <div class="profile-image-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" 
+            alt="Student Profile" 
+            class="profile-img"
+          >
+        </div>
+
+        <!-- Student Information -->
+        <div class="profile-info">
+          <span class="degree-badge">BS in Computer Science</span>
+          <h2 class="student-name">Abdullah Khan</h2>
+          <p class="student-program">Undergraduate Software Engineering Student</p>
+          <p class="student-intro">
+            Passionate full-stack developer committed to crafting clean, responsive, and accessible user interfaces. Experienced with modern layout systems including CSS Flexbox, Grid, and utility-first UI frameworks.
+          </p>
+
+          <!-- Three Skills -->
+          <div class="skills-wrapper">
+            <h3 class="skills-heading">Core Skills:</h3>
+            <div class="skills-list">
+              <span class="skill-pill">HTML5 / Semantic Web</span>
+              <span class="skill-pill">CSS3 / Flexbox Layout</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Full Stack Web Development — Lab 2 | Task 1</p>
+  </footer>
+
+</body>
+</html>

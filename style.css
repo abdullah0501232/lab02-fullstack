@@ -1,320 +1,523 @@
-/* =========================================
-GENERAL STYLING
-========================================= */
+/* =======================================================
+   FULL STACK WEB DEVELOPMENT — LAB 2
+   TASK 5: COMPLETE MINI PORTFOLIO CHALLENGE
+   CONCEPTS DEMONSTRATED:
+   1. Flexbox
+   2. Positioning (relative & absolute)
+   3. Pseudo-elements (::before & ::after)
+   4. CSS Filters (grayscale, sepia, contrast, hover removal)
+   5. CSS Transitions & Transforms (translateY, scale)
+   6. Bootstrap Flex Utilities (d-flex, gap-3, etc.)
+   7. Responsive Design (media queries & mobile stacking)
+   ======================================================= */
+
+/* General & Typography */
+:root {
+  --primary-color: #0d6efd;
+  --primary-dark: #0a58ca;
+  --secondary-color: #6c757d;
+  --dark-color: #1a202c;
+  --light-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #212529;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #334155;
+  background-color: var(--light-bg);
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* =========================================
-HERO SECTION
-========================================= */
-.hero-section {
-  background: linear-gradient(
-    135deg,
-    #e9f2ff,
-    #f8f9fa
-  );
-  padding: 90px 20px;
+/* Lab Header Banner */
+.lab-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 }
 
-/* CSS FLEXBOX */
-.hero-content {
+.brand-accent {
+  color: #38bdf8;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+/* =======================================================
+   SECTION TITLES WITH PSEUDO-ELEMENT (::after)
+   ======================================================= */
+.section-title h2 {
+  font-weight: 800;
+  color: #0f172a;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+/* =======================================================
+   1. STUDENT INTRODUCTION & PROFILE
+   Flexbox layout, justify-content, align-items, responsive
+   ======================================================= */
+.profile-flex-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  flex-wrap: wrap;
+  gap: 3rem;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--border-color);
 }
 
-/* =========================================
-HERO TEXT
-========================================= */
-.hero-content h1 {
-  font-size: 48px;
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.profile-media-wrapper {
+  flex: 0 0 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-content p {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-/* =========================================
-PROFILE IMAGE
-========================================= */
-.profile-image-container {
+/* Positioning: Relative container with Absolute status badge */
+.image-pos-wrapper {
   position: relative;
+  display: inline-block;
 }
 
-/* CSS FILTER */
-.profile-image {
-  width: 280px;
-  height: 280px;
+.profile-avatar {
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  border: 8px solid white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  filter: saturate(1.2);
+  border: 6px solid #e0f2fe;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* =========================================
-ABSOLUTE POSITIONING
-========================================= */
-.online-badge {
+.profile-avatar:hover {
+  transform: scale(1.04);
+}
+
+.status-badge {
   position: absolute;
   bottom: 15px;
-  right: 10px;
-  background: green;
-  color: white;
-  padding: 8px 15px;
+  right: 15px;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+}
+
+.profile-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+.program-tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
   border-radius: 20px;
-  font-size: 14px;
+  margin-bottom: 0.75rem;
 }
 
-/* =========================================
-SECTION HEADING
-========================================= */
-.section-heading {
-  text-align: center;
-  margin-bottom: 40px;
+.profile-name {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
 }
 
-.section-heading h2 {
-  font-size: 36px;
-  font-weight: bold;
+.profile-bio {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
 }
 
-/* =========================================
-PSEUDO ELEMENTS
-========================================= */
-.section-heading h2::after {
-  content: "";
-  display: block;
-  width: 70px;
-  height: 4px;
-  background: #0d6efd;
-  margin: 12px auto;
+.intro-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-/* =========================================
-PROFILE CARD
-========================================= */
-.profile-card {
-  max-width: 700px;
-  margin: auto;
-  padding: 40px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
+.badge-skill {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #2563eb;
+  transition: all 0.2s ease;
 }
 
-/* PSEUDO ELEMENT */
-.profile-card::before {
-  content: "PROFILE";
-  position: absolute;
-  top: -12px;
-  left: 25px;
-  background: #0d6efd;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 5px;
-  font-size: 12px;
+.badge-skill:hover {
+  background: #2563eb;
+  color: #ffffff;
 }
 
-/* =========================================
-SKILLS SECTION
-========================================= */
-.skills-section {
-  background: #f5f5f5;
-}
-
-/* =========================================
-CSS FLEXBOX
-========================================= */
-.skills-container {
+/* =======================================================
+   2. SKILLS SECTION
+   Flexbox layout with CSS Transitions & Transforms
+   ======================================================= */
+.skills-flex-container {
   display: flex;
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.5rem;
 }
 
-.skill-box {
-  flex: 1 1 200px;
-  background: white;
-  padding: 30px;
+.skill-card {
+  flex: 1 1 240px;
+  max-width: 270px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  /* CSS Transition */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 }
 
-/* CSS EFFECT */
-.skill-box:hover {
+/* CSS Transform on hover */
+.skill-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.1);
 }
 
-/* =========================================
-PROJECT SECTION
-========================================= */
-.project-container {
+.skill-icon {
+  margin-bottom: 1rem;
+}
+
+.text-purple {
+  color: #7952b3 !important;
+}
+
+.bg-purple-subtle {
+  background-color: #f3e8ff !important;
+}
+
+.skill-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+}
+
+.skill-card p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* =======================================================
+   3. PROJECTS SECTION
+   Flexbox, CSS Transitions, Transforms, & CSS Filters
+   ======================================================= */
+.projects-flex-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.project-card {
-  width: 30%;
-  min-width: 280px;
-  padding: 20px;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-/* =========================================
-PROJECT IMAGE
-========================================= */
-.project-image {
+.project-portfolio-card {
+  flex: 1 1 320px;
+  max-width: 370px;
+  background: var(--card-bg);
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  /* CSS Transition */
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease;
 }
 
-.project-image img {
-  width: 100%;
+/* Hover: Moves upward and scales */
+.project-portfolio-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+.project-img-frame {
+  position: relative;
   height: 200px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+  overflow: hidden;
+  background-color: #0f172a;
 }
 
-.project-image:hover img {
+.project-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Transition for zoom and filter */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.project-img-frame:hover img {
   transform: scale(1.08);
 }
 
-/* =========================================
-CSS FILTER
-========================================= */
-.grayscale img {
-  filter: grayscale(100%);
+.hover-hint {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
-.grayscale:hover img {
+/* CSS Filters and removal on hover */
+.filter-grayscale img {
+  filter: grayscale(100%);
+}
+.filter-grayscale:hover img,
+.project-portfolio-card:hover .filter-grayscale img {
   filter: grayscale(0%);
 }
 
-/* =========================================
-BOOTSTRAP FLEX SECTION
-========================================= */
-.bootstrap-flex-section {
-  background: #f8f9fa;
+.filter-sepia img {
+  filter: sepia(90%) contrast(110%);
+}
+.filter-sepia:hover img,
+.project-portfolio-card:hover .filter-sepia img {
+  filter: sepia(0%) contrast(100%);
 }
 
-.bootstrap-demo {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.filter-contrast img {
+  filter: grayscale(100%) contrast(140%) brightness(0.9);
+}
+.filter-contrast:hover img,
+.project-portfolio-card:hover .filter-contrast img {
+  filter: none;
 }
 
-.flex-item {
-  background: #212529;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 5px;
-  text-align: center;
+.project-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-/* =========================================
-POSITIONING
-========================================= */
-.position-section {
-  background: #f5f5f5;
+.project-card-body h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
 }
 
-.position-card {
-  position: relative;
-  max-width: 700px;
-  margin: auto;
-  padding: 40px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+.project-card-body p {
+  color: #64748b;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
 }
 
-.featured-badge {
+/* =======================================================
+   4. ACHIEVEMENT SECTION
+   Position: relative, Position: absolute top-right badge,
+   Pseudo-elements (::before label & ::after line)
+   ======================================================= */
+.achievement-card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.student-achievement-card {
+  position: relative; /* REQUIRED: position relative */
+  max-width: 820px;
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 3.5rem 2.75rem 2.5rem 2.75rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+/* Pseudo-element ::before for decorative label */
+.student-achievement-card::before {
+  content: "OFFICIAL ACADEMIC RECOGNITION";
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #ffc107;
-  color: black;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 13px;
+  top: -14px;
+  left: 32px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
 }
 
-/* =========================================
-CONTACT
-========================================= */
-.contact-section {
-  background: white;
+/* Position: absolute Featured Badge at TOP-RIGHT corner */
+.featured-badge-topright {
+  position: absolute; /* REQUIRED: position absolute */
+  top: 22px;          /* REQUIRED: top-right corner */
+  right: 24px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
 }
 
-/* =========================================
-FOOTER
-========================================= */
-.footer {
-  background: #212529;
-  color: white;
-  padding: 20px 0;
+.award-meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #94a3b8;
 }
 
-.footer p {
-  margin: 0;
+.honoree-name {
+  font-size: 1.4rem;
+  color: #2563eb;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
 }
 
-/* =========================================
-RESPONSIVE DESIGN
-========================================= */
+/* Decorative underline using ::after */
+.award-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  position: relative;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.award-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+.award-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.award-date {
+  background: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.award-summary {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+/* =======================================================
+   5. DASHBOARD SECTION
+   Bootstrap Flex Utilities styling
+   RESTRICTION OBSERVED: NO custom display: flex on dashboard-row
+   ======================================================= */
+.dash-card {
+  min-width: 210px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dash-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* =======================================================
+   6. RESPONSIVE DESIGN (Media Queries)
+   Mobile screen vertical stacking
+   ======================================================= */
 @media (max-width: 768px) {
-  .hero-content {
+  .profile-flex-container {
     flex-direction: column;
     text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
   }
 
-  .hero-content h1 {
-    font-size: 35px;
+  .profile-media-wrapper {
+    flex: initial;
   }
 
-  .hero-content p {
-    font-size: 17px;
+  .profile-avatar {
+    width: 200px;
+    height: 200px;
   }
 
-  .profile-image {
-    width: 220px;
-    height: 220px;
+  .intro-skills {
+    justify-content: center;
   }
 
-  .project-card {
-    width: 100%;
+  .student-achievement-card {
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem;
   }
 
-  .flex-item {
-    width: 100%;
+  .featured-badge-topright {
+    top: 14px;
+    right: 14px;
+    font-size: 0.75rem;
+  }
+
+  .award-title {
+    font-size: 1.45rem;
+  }
+
+  .dash-card {
+    min-width: 100%;
   }
 }
 
+.hover-white:hover {
+  color: #ffffff !important;
+}

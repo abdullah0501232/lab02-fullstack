@@ -1,0 +1,295 @@
+/* =========================================
+   TASK 3: PROFILE BADGE USING CSS POSITIONING
+   AND PSEUDO-ELEMENTS
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7fafc;
+  color: #2d3748;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Nav */
+.top-nav {
+  background: #1a202c;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  color: #63b3ed;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-links a {
+  color: #cbd5e0;
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #3182ce;
+  color: #ffffff;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  flex: 1;
+}
+
+.task-banner {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.task-banner h1 {
+  font-size: 2rem;
+  color: #1a365d;
+  margin-bottom: 0.5rem;
+}
+
+.task-banner p {
+  color: #718096;
+  font-size: 1.05rem;
+}
+
+/* =========================================
+   Requirement 1: The main card must use
+   position: relative;
+   ========================================= */
+.achievement-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.achievement-card {
+  position: relative; /* REQUIRED: position relative */
+  max-width: 780px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  overflow: visible;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   Requirement 3: Use ::before or ::after to
+   create a decorative label or line.
+   Here, ::before creates a decorative ribbon label at top-left.
+   ========================================= */
+.achievement-card::before {
+  content: "OFFICIAL RECOGNITION";
+  position: absolute;
+  top: -14px;
+  left: 28px;
+  background: linear-gradient(135deg, #3182ce, #2b6cb0);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(49, 130, 206, 0.4);
+}
+
+/* =========================================
+   Requirement 2 & 4:
+   - The Featured badge must use position: absolute;
+   - The badge must appear at the top-right corner of the card.
+   ========================================= */
+.featured-badge {
+  position: absolute; /* REQUIRED: position absolute */
+  top: 20px;          /* REQUIRED: top-right corner */
+  right: 20px;
+  background: linear-gradient(135deg, #f6ad55, #ed8936);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(237, 137, 54, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Card Content Details */
+.card-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-meta {
+  margin-bottom: 0.75rem;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #a0aec0;
+  font-weight: 700;
+}
+
+.student-name {
+  font-size: 1.4rem;
+  color: #2b6cb0;
+  font-weight: 700;
+}
+
+/* Decorative line under title using ::after */
+.achievement-title {
+  font-size: 1.85rem;
+  color: #1a202c;
+  font-weight: 700;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+/* Requirement 3 (Line): Decorative line using ::after */
+.achievement-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #3182ce, #63b3ed);
+}
+
+.date-badge-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.achievement-date {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.academic-year {
+  background: #edf2f7;
+  color: #718096;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.achievement-description {
+  color: #4a5568;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.achievement-footer {
+  border-top: 1px solid #edf2f7;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.issuer-info strong {
+  display: block;
+  color: #2d3748;
+  font-size: 0.95rem;
+}
+
+.issuer-info span {
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+.verify-btn {
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.verify-btn:hover {
+  background: #2c5282;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .achievement-card {
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .featured-badge {
+    top: 15px;
+    right: 15px;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .achievement-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* Footer */
+.footer {
+  background: #1a202c;
+  color: #a0aec0;
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.9rem;
+}

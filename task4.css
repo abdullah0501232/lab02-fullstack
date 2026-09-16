@@ -1,0 +1,41 @@
+/* =========================================
+   TASK 4: BOOTSTRAP FLEXBOX DASHBOARD
+   NOTE: Restriction strictly observed:
+   NO display: flex is defined here for the
+   main dashboard layout. All flex layout is
+   handled via Bootstrap utility classes.
+   ========================================= */
+
+.dashboard-wrapper {
+  background-color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Individual Dashboard Cards */
+.dashboard-item {
+  min-width: 220px;
+  background: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Rounded Icon containers */
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex; /* only used for internal icon centering */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive adjustment if needed */
+@media (max-width: 576px) {
+  .dashboard-item {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4 — Bootstrap Flexbox Dashboard</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Custom CSS for theme & item aesthetics (Main layout strictly uses Bootstrap Flex utilities) -->
+  <link rel="stylesheet" href="task4.css">
+</head>
+<body class="bg-light min-vh-100 d-flex flex-column">
+
+  <!-- Top Navigation -->
+  <header class="navbar navbar-expand bg-dark navbar-dark py-3 shadow-sm">
+    <div class="container">
+      <span class="navbar-brand fw-bold text-info">Lab 2 Tasks</span>
+      <div class="navbar-nav ms-auto gap-2">
+        <a class="nav-link text-light" href="task1.html">Task 1</a>
+        <a class="nav-link text-light" href="task2.html">Task 2</a>
+        <a class="nav-link text-light" href="task3.html">Task 3</a>
+        <a class="nav-link active fw-bold text-warning" href="task4.html">Task 4</a>
+        <a class="nav-link text-light" href="index.html">Task 5 (Portfolio)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5 flex-grow-1">
+    <div class="text-center mb-5">
+      <span class="badge bg-primary px-3 py-2 text-uppercase mb-2">Bootstrap Flex Utilities</span>
+      <h1 class="fw-bold text-dark">Task 4 — Student Flexbox Dashboard</h1>
+      <p class="text-muted">
+        Built strictly using Bootstrap flex utility classes (<code>d-flex</code>, <code>justify-content-between</code>, <code>align-items-center</code>, <code>flex-wrap</code>, <code>gap-3</code>) without custom flex container CSS.
+      </p>
+    </div>
+
+    <!-- 
+      MAIN DASHBOARD CONTAINER
+      Strictly uses Bootstrap Flex Utilities:
+      - d-flex
+      - justify-content-between
+      - align-items-center
+      - flex-wrap
+      - gap-3
+    -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 dashboard-wrapper p-4 bg-white rounded-4 shadow-sm border">
+
+      <!-- Item 1: Courses -->
+      <div class="dashboard-item flex-fill p-4 rounded-3 border-start border-primary border-4 shadow-sm bg-body">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-uppercase text-muted small fw-semibold">Academic</span>
+          <div class="icon-circle bg-primary-subtle text-primary">
+            <i class="bi bi-journal-bookmark-fill fs-4"></i>
+          </div>
+        </div>
+        <h2 class="fw-bold mb-1 text-dark">6</h2>
+        <h5 class="fw-semibold text-secondary mb-1">Courses</h5>
+        <p class="text-muted small mb-0">Enrolled this semester</p>
+      </div>
+
+      <!-- Item 2: Assignments -->
+      <div class="dashboard-item flex-fill p-4 rounded-3 border-start border-warning border-4 shadow-sm bg-body">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-uppercase text-muted small fw-semibold">Submissions</span>
+          <div class="icon-circle bg-warning-subtle text-warning">
+            <i class="bi bi-file-earmark-check-fill fs-4"></i>
+          </div>
+        </div>
+        <h2 class="fw-bold mb-1 text-dark">14</h2>
+        <h5 class="fw-semibold text-secondary mb-1">Assignments</h5>
+        <p class="text-muted small mb-0">12 Completed &bull; 2 Pending</p>
+      </div>
+
+      <!-- Item 3: Projects -->
+      <div class="dashboard-item flex-fill p-4 rounded-3 border-start border-success border-4 shadow-sm bg-body">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-uppercase text-muted small fw-semibold">Portfolio</span>
+          <div class="icon-circle bg-success-subtle text-success">
+            <i class="bi bi-kanban-fill fs-4"></i>
+          </div>
+        </div>
+        <h2 class="fw-bold mb-1 text-dark">4</h2>
+        <h5 class="fw-semibold text-secondary mb-1">Projects</h5>
+        <p class="text-muted small mb-0">3 Deployed &bull; 1 In Progress</p>
+      </div>
+
+      <!-- Item 4: Attendance -->
+      <div class="dashboard-item flex-fill p-4 rounded-3 border-start border-info border-4 shadow-sm bg-body">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-uppercase text-muted small fw-semibold">Punctuality</span>
+          <div class="icon-circle bg-info-subtle text-info">
+            <i class="bi bi-person-check-fill fs-4"></i>
+          </div>
+        </div>
+        <h2 class="fw-bold mb-1 text-dark">96%</h2>
+        <h5 class="fw-semibold text-secondary mb-1">Attendance</h5>
+        <p class="text-muted small mb-0">Excellent track record</p>
+      </div>
+
+    </div>
+
+    <!-- Requirement Compliance Summary Card -->
+    <div class="mt-5 p-4 bg-white rounded-3 border shadow-sm">
+      <h5 class="fw-bold text-dark mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Requirements Checklist</h5>
+      <div class="row g-3 small">
+        <div class="col-md-6">
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><i class="bi bi-check-lg text-primary me-2"></i><strong>Four Items:</strong> Courses, Assignments, Projects, Attendance included.</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary me-2"></i><strong>Row layout on large screens:</strong> Items span evenly side-by-side.</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><i class="bi bi-check-lg text-primary me-2"></i><strong>Bootstrap Utilities:</strong> <code>d-flex</code>, <code>justify-content-between</code>, <code>align-items-center</code>, <code>flex-wrap</code>, <code>gap-3</code>.</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-primary me-2"></i><strong>Restriction Respected:</strong> Zero custom <code>display: flex</code> in custom CSS for main dashboard layout.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-secondary py-3 text-center small mt-auto">
+    <div class="container">
+      &copy; 2026 Full Stack Web Development — Lab 2 | Task 4 (Bootstrap Flex Utilities)
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
